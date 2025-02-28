@@ -4,7 +4,6 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import org.telegram.telegrambots.client.okhttp.OkHttpTelegramClient
 import org.telegram.telegrambots.longpolling.util.LongPollingSingleThreadUpdateConsumer
-import org.telegram.telegrambots.meta.api.methods.send.SendChatAction
 import org.telegram.telegrambots.meta.api.methods.send.SendDocument
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage
 import org.telegram.telegrambots.meta.api.objects.Update
@@ -53,7 +52,7 @@ class TelegramBot(
     override fun consume(update: Update?) {
         if (update!!.hasMessage() && update.message.hasText()) {
             val messageText = update.message?.text ?: throw IllegalArgumentException()
-            if (buttonCommandMap.containsKey(messageText)){
+            if (buttonCommandMap.containsKey(messageText)) {
                 sendMessage(commandsHandler.handleSendMessageCommand(update, buttonCommandMap))
             } else if (documentCommandMap.containsKey(messageText)) {
                 sendDocument(commandsHandler.handleSendDocumentCommand(update, documentCommandMap))

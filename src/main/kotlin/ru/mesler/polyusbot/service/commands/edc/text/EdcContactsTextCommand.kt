@@ -5,7 +5,7 @@ import ru.mesler.polyusbot.buttons.edc.EdcButtons
 import ru.mesler.polyusbot.service.commands.api.TextCommand
 
 @Component
-class EdcContactsTextCommand: TextCommand {
+class EdcContactsTextCommand : TextCommand {
     override fun getText(): String {
         return """Тут будут конактные данные ЕДЦ"""
     }

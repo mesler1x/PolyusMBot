@@ -3,7 +3,6 @@ package ru.mesler.polyusbot.service
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import org.telegram.telegrambots.meta.api.methods.ParseMode
-import org.telegram.telegrambots.meta.api.methods.send.SendChatAction
 import org.telegram.telegrambots.meta.api.methods.send.SendDocument
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage
 import org.telegram.telegrambots.meta.api.objects.InputFile
@@ -18,7 +17,7 @@ import ru.mesler.polyusbot.util.CommandNames
 import ru.mesler.polyusbot.util.Constants
 
 @Component
-class CommandsHandler{
+class CommandsHandler {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
 
@@ -64,7 +63,8 @@ class CommandsHandler{
     fun handleSendTextCommand(update: Update, textCommandMap: MutableMap<String, TextCommand>): SendMessage {
         val chatId = update.message?.chat?.id ?: throw IllegalArgumentException()
         val messageText = update.message?.text ?: throw IllegalArgumentException()
-        val textCommandHandler = textCommandMap[messageText] ?: return SendMessage(chatId.toString(), Constants.UNKNOWN_COMMAND.message)
+        val textCommandHandler =
+            textCommandMap[messageText] ?: return SendMessage(chatId.toString(), Constants.UNKNOWN_COMMAND.message)
         val sendMessage = SendMessage
             .builder()
             .chatId(chatId)

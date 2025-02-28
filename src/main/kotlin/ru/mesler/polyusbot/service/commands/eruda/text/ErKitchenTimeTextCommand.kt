@@ -5,7 +5,7 @@ import ru.mesler.polyusbot.buttons.eruda.ErudaButtons.ErudaWorkingTimeButtons.KI
 import ru.mesler.polyusbot.service.commands.api.TextCommand
 
 @Component
-class ErKitchenTimeTextCommand: TextCommand {
+class ErKitchenTimeTextCommand : TextCommand {
     override fun getText(): String = """
         Тут будут часы работы столовой базы Еруда
     """.trimIndent()

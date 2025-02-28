@@ -5,7 +5,7 @@ import ru.mesler.polyusbot.buttons.lesusybirsk.LesosybirskButtons.LesosybirskWor
 import ru.mesler.polyusbot.service.commands.api.TextCommand
 
 @Component
-class LKitchenTimeText: TextCommand {
+class LKitchenTimeText : TextCommand {
 
     override fun getText(): String =
         """

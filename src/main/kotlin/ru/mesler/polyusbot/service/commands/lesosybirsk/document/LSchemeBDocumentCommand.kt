@@ -7,7 +7,7 @@ import java.io.File
 import java.nio.file.Paths
 
 @Component
-class LSchemeBDocumentCommand: DocumentCommand {
+class LSchemeBDocumentCommand : DocumentCommand {
     override fun getDocument(): File {
         return Paths.get("src/main/resources/static/schemes/B_SCHEME_LES.pdf").toFile()
     }

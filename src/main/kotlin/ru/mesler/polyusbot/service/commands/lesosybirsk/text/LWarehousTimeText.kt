@@ -5,7 +5,7 @@ import ru.mesler.polyusbot.buttons.lesusybirsk.LesosybirskButtons.LesosybirskWor
 import ru.mesler.polyusbot.service.commands.api.TextCommand
 
 @Component
-class LWarehousTimeText: TextCommand {
+class LWarehousTimeText : TextCommand {
     override fun getText(): String =
         """
             Тут будет время работы Лесосибирского склада

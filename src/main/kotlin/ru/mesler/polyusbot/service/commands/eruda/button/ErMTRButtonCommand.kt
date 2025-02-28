@@ -11,7 +11,7 @@ import ru.mesler.polyusbot.service.commands.api.ButtonCommand
 import ru.mesler.polyusbot.util.MessageTexts
 
 @Component
-class ErMTRButtonCommand: ButtonCommand {
+class ErMTRButtonCommand : ButtonCommand {
     override fun getButtons(update: Update): KeyboardRow {
         val mtrWorkingTime = KeyboardButton(MTR_WORKING_TIME.text)
         val mtrWarehouseScheme = KeyboardButton(MTR_WAREHOUSE_SCHEME.text)

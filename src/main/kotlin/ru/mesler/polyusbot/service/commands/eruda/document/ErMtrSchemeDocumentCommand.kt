@@ -4,12 +4,11 @@ import org.springframework.stereotype.Component
 import ru.mesler.polyusbot.buttons.eruda.ErudaButtons
 import ru.mesler.polyusbot.service.commands.api.DocumentCommand
 import java.io.File
-import java.nio.file.Files
 
 @Component
-class ErMtrSchemeDocumentCommand: DocumentCommand {
+class ErMtrSchemeDocumentCommand : DocumentCommand {
     override fun getDocument(): File {
-        return File.createTempFile("some file","pdf")
+        return File.createTempFile("some file", "pdf")
     }
 
     override fun getParentCommandName(): String = ErudaButtons.ErudaMTRButtons.MTR_WAREHOUSE_SCHEME.text

@@ -5,7 +5,7 @@ import ru.mesler.polyusbot.buttons.edc.EdcButtons
 import ru.mesler.polyusbot.service.commands.api.TextCommand
 
 @Component
-class EdcQueueChatTextCommand: TextCommand {
+class EdcQueueChatTextCommand : TextCommand {
 
     override fun getText(): String {
         return "@gentoomemes"
