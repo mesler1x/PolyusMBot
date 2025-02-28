@@ -1,7 +1,7 @@
 package ru.mesler.polyusbot.service
 
 import org.slf4j.LoggerFactory
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import org.telegram.telegrambots.meta.api.methods.ParseMode
 import org.telegram.telegrambots.meta.api.methods.send.SendDocument
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage
@@ -14,9 +14,9 @@ import ru.mesler.polyusbot.service.commands.api.ButtonCommand
 import ru.mesler.polyusbot.service.commands.api.DocumentCommand
 import ru.mesler.polyusbot.service.commands.api.TextCommand
 import ru.mesler.polyusbot.util.CommandNames
-import ru.mesler.polyusbot.util.Constants
+import ru.mesler.polyusbot.util.ErrorConstants
 
-@Component
+@Service
 class CommandsHandler {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
@@ -27,7 +27,10 @@ class CommandsHandler {
         val chatId = update.message?.chat?.id ?: throw IllegalArgumentException()
 
         val buttonCommandHandler =
-            buttonCommandMap[messageText] ?: return SendMessage(chatId.toString(), Constants.UNKNOWN_COMMAND.message)
+            buttonCommandMap[messageText] ?: return SendMessage(
+                chatId.toString(),
+                ErrorConstants.UNKNOWN_COMMAND.message
+            )
         val buttons = buttonCommandHandler.getButtons(update)
         val sendMessage = SendMessage
             .builder()
@@ -48,7 +51,7 @@ class CommandsHandler {
         val chatId = update.message?.chat?.id ?: throw IllegalArgumentException()
         val messageText = update.message?.text ?: throw IllegalArgumentException()
         val documentCommandHandler = documentCommandMap[messageText] ?: return SendDocument.builder().chatId(chatId)
-            .caption(Constants.UNKNOWN_COMMAND.message).build()
+            .caption(ErrorConstants.UNKNOWN_COMMAND.message).build()
         val file = documentCommandHandler.getDocument()
         val documentMessage = SendDocument
             .builder()
@@ -64,7 +67,7 @@ class CommandsHandler {
         val chatId = update.message?.chat?.id ?: throw IllegalArgumentException()
         val messageText = update.message?.text ?: throw IllegalArgumentException()
         val textCommandHandler =
-            textCommandMap[messageText] ?: return SendMessage(chatId.toString(), Constants.UNKNOWN_COMMAND.message)
+            textCommandMap[messageText] ?: return SendMessage(chatId.toString(), ErrorConstants.UNKNOWN_COMMAND.message)
         val sendMessage = SendMessage
             .builder()
             .chatId(chatId)

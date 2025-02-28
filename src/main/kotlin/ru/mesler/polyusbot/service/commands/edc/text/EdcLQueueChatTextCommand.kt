@@ -1,10 +1,10 @@
 package ru.mesler.polyusbot.service.commands.edc.text
 
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import ru.mesler.polyusbot.buttons.edc.EdcButtons
 import ru.mesler.polyusbot.service.commands.api.TextCommand
 
-@Component
+@Service
 class EdcLQueueChatTextCommand : TextCommand {
     override fun getText(): String {
         return "@gentoomemes"

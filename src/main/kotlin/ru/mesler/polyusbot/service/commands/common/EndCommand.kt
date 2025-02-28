@@ -1,13 +1,13 @@
 package ru.mesler.polyusbot.service.commands.common
 
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import org.telegram.telegrambots.meta.api.objects.Update
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow
 import ru.mesler.polyusbot.service.commands.api.ButtonCommand
 import ru.mesler.polyusbot.util.CommandNames
 import ru.mesler.polyusbot.util.MessageTexts
 
-@Component
+@Service
 class EndCommand(
     private val startCommand: StartCommand
 ) : ButtonCommand {

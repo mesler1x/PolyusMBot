@@ -1,11 +1,11 @@
 package ru.mesler.polyusbot.service.commands.eruda.document
 
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import ru.mesler.polyusbot.buttons.eruda.ErudaButtons
 import ru.mesler.polyusbot.service.commands.api.DocumentCommand
 import java.io.File
 
-@Component
+@Service
 class ErMtrSchemeDocumentCommand : DocumentCommand {
     override fun getDocument(): File {
         return File.createTempFile("some file", "pdf")

@@ -12,7 +12,7 @@ import ru.mesler.polyusbot.service.CommandsHandler
 import ru.mesler.polyusbot.service.commands.api.ButtonCommand
 import ru.mesler.polyusbot.service.commands.api.DocumentCommand
 import ru.mesler.polyusbot.service.commands.api.TextCommand
-import ru.mesler.polyusbot.util.Constants
+import ru.mesler.polyusbot.util.ErrorConstants
 import java.util.concurrent.TimeUnit
 
 
@@ -67,7 +67,7 @@ class TelegramBot(
     private fun performUnknownCommand(update: Update) {
         val message = SendMessage.builder()
             .chatId(update.message?.chat?.id!!)
-            .text(Constants.UNKNOWN_COMMAND.message)
+            .text(ErrorConstants.UNKNOWN_COMMAND.message)
             .build()
         sendMessage(message)
     }

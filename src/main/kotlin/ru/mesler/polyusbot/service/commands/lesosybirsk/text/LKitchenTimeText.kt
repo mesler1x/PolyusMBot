@@ -1,10 +1,10 @@
 package ru.mesler.polyusbot.service.commands.lesosybirsk.text
 
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import ru.mesler.polyusbot.buttons.lesusybirsk.LesosybirskButtons.LesosybirskWorkingTimeButtons
 import ru.mesler.polyusbot.service.commands.api.TextCommand
 
-@Component
+@Service
 class LKitchenTimeText : TextCommand {
 
     override fun getText(): String =

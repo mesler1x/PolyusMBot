@@ -1,6 +1,6 @@
 package ru.mesler.polyusbot.service.commands.eruda.button
 
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import org.telegram.telegrambots.meta.api.objects.Update
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow
@@ -10,7 +10,7 @@ import ru.mesler.polyusbot.buttons.eruda.ErudaButtons.ErudaMTRButtons.MTR_WORKIN
 import ru.mesler.polyusbot.service.commands.api.ButtonCommand
 import ru.mesler.polyusbot.util.MessageTexts
 
-@Component
+@Service
 class ErMTRButtonCommand : ButtonCommand {
     override fun getButtons(update: Update): KeyboardRow {
         val mtrWorkingTime = KeyboardButton(MTR_WORKING_TIME.text)

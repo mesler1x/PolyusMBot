@@ -1,6 +1,6 @@
 package ru.mesler.polyusbot.service.commands.common
 
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import org.telegram.telegrambots.meta.api.objects.Update
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow
@@ -10,7 +10,7 @@ import ru.mesler.polyusbot.util.CommandNames.START_COMMAND
 import ru.mesler.polyusbot.util.MessageTexts
 
 
-@Component
+@Service
 class StartCommand : ButtonCommand {
     override fun getButtons(update: Update): KeyboardRow {
         val lesosybirskButton = KeyboardButton(StartInputButtons.LESOSYBIRSK_BASE.text)
