@@ -13,6 +13,7 @@ import ru.mesler.polyusbot.service.CommandsHandler
 import ru.mesler.polyusbot.service.commands.api.ButtonCommand
 import ru.mesler.polyusbot.service.commands.api.DocumentCommand
 import ru.mesler.polyusbot.service.commands.api.TextCommand
+import ru.mesler.polyusbot.util.Constants
 import java.util.concurrent.TimeUnit
 
 
@@ -58,8 +59,18 @@ class TelegramBot(
                 sendDocument(commandsHandler.handleSendDocumentCommand(update, documentCommandMap))
             } else if (textCommandMap.containsKey(messageText)) {
                 sendMessage(commandsHandler.handleSendTextCommand(update, textCommandMap))
+            } else {
+                performUnknownCommand(update)
             }
         }
+    }
+
+    private fun performUnknownCommand(update: Update) {
+        val message = SendMessage.builder()
+            .chatId(update.message?.chat?.id!!)
+            .text(Constants.UNKNOWN_COMMAND.message)
+            .build()
+        sendMessage(message)
     }
 
     private fun sendMessage(sendMessage: SendMessage) {
