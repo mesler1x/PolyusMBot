@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:6432}/${DB_NAME:bot_db}
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 30
+
+  application:
+    name: PolyusBot
+
+tg:
+  bot:
+    username: polyusmbot
+    token: 7726269307:AAFlfPs1LAXswj7Ic8VipZlcwI9R-xeZKyg
+
+logging:
+  level:
+    org:
+      springframework:
+        jdbc: DEBUG
